@@ -6,8 +6,8 @@
 
 .welcome {
   display: flex;
-  padding-top: 20%;
-  padding-bottom: 20%;
+  padding-top: 15%;
+  padding-bottom: 15%;
   background-color: #EDF6F9;
 }
 
@@ -16,6 +16,7 @@
   padding-top: 5%;
   padding-bottom: 3%;
   padding-left: 8%;
+  padding-right: 8%;
 }
 
 .left {
@@ -56,7 +57,8 @@
 }
 
 h2,
-h1 {
+h1,
+h3 {
   font-family: monospace;
 }
 
@@ -163,6 +165,34 @@ footer {
   background-color: #E29578;
   background-color: #EDF6F9;
   padding: 3%;
+}
+
+.projectDetails {
+  padding: 8%;
+  padding-top: 3%;
+}
+
+.example {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* background-color: #006D77; */
+  margin-top: 2%;
+  padding-bottom: 2%;
+  border-bottom: 2px solid #006D77;
+}
+
+.exampleDetails {
+  padding: 2%;
+  max-width: 50%;
+}
+
+.exampleImgs {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  /* background-color: #83CFBE; */
+  max-width: 50%;
 }
 
 
