@@ -9,13 +9,14 @@
 
   <meta property="og:description" content="A page dedicated to Nicole's design projects and CS5356 HW3" />
 
-  <meta property="og:image" content="assets/hat_profile.jpeg" />
+  <meta property="og:image" content="assets/intro.png" />
 
   <title>Homework 3</title>
   <link rel="stylesheet" type="text/css" href="styles.css" media="all" />
 </head>
 
 <body>
+  <script data-goatcounter="https://nyl6.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   <header>
     <div class="welcome">
       <div class="left">
@@ -31,6 +32,39 @@
         Master's student at Cornell Tech studying applied information science with a concentration in health tech. As a
         studemt, she has taken design courses like HCI and Design and has learned the importance of user experience, as
         well as the aesthetics of design. Learn more about her creative skills and projects here.</p>
+      <p id="quote-text">Design can help to improve our lives in the present. Design thinking can help us chart a path
+        into the future. - Tim Brown</p>
+      <button class="button" id="quote-button">Change design quote</button>
+
+      <script>
+        const text = document.querySelector('#quote-text');
+        const button = document.querySelector('#quote-button');
+        const url = 'https://quotesondesign.com/wp-json/wp/v2/posts/?orderby=rand';
+        fetch(url)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log('Data received:', data[2]);
+            button.addEventListener('click', function () {
+              const randomIndex = Math.floor(Math.random() * data.length);
+              const tempDiv = document.createElement("div");
+              tempDiv.innerHTML = data[randomIndex].content.rendered;
+              const quote = tempDiv.innerText || tempDiv.textContent;
+              const author = data[randomIndex].title.rendered;
+              text.textContent = `${quote} - ${author}`;
+            });
+          })
+          .catch(error => {
+            console.error('There was a problem fetching the data:', error);
+          });
+
+
+      </script>
+
     </div>
   </section>
   <section class="projects">
